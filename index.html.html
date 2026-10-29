@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Felix Ahuchaogu – AI Training Data Reviewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF1F6;--surface:#FFFFFF;--ink:#14213D;--muted:#4A5672;--line:#C9D1E0;--pink:#D6247F;--cyan:#07808C;--amber:#B86E00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1626;--surface:#172138;--ink:#E8ECF5;--muted:#A3AEC7;--line:#2B3856;--pink:#FF6BB3;--cyan:#4FD1DC;--amber:#F2B04A}}
+:root[data-theme="dark"]{--bg:#0F1626;--surface:#172138;--ink:#E8ECF5;--muted:#A3AEC7;--line:#2B3856;--pink:#FF6BB3;--cyan:#4FD1DC;--amber:#F2B04A}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-weight:500}
+header.top nav{display:flex;gap:22px;font-size:15px}
+header.top a{text-decoration:none;color:var(--muted)}
+header.top a:hover{color:var(--ink)}
+.hero{padding:56px 0 72px}
+.hero h1{font-size:clamp(40px,8.2vw,92px);font-weight:800;letter-spacing:-.03em;line-height:1.28}
+.box{position:relative;display:inline-block;padding:0 .12em;margin:0 .02em;border:3px solid var(--c);background:color-mix(in srgb,var(--c) 10%,transparent)}
+.box i{position:absolute;left:-3px;top:-1.35em;font:600 13px/1 "IBM Plex Sans",sans-serif;font-style:normal;letter-spacing:0;background:var(--c);color:#fff;padding:5px 8px;white-space:nowrap}
+:root:not([data-theme="light"]) .box i{color:#0F1626}
+@media (prefers-color-scheme:light){.box i{color:#fff}}
+.b1{--c:var(--pink)}.b2{--c:var(--cyan)}.b3{--c:var(--amber)}
+.hero .sub{max-width:60ch;margin:44px 0 28px;color:var(--muted);font-size:19px}
+.hero .who{font-weight:600;margin-bottom:6px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 22px;border:2px solid var(--ink);font-weight:600;text-decoration:none;border-radius:4px}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.facts div{padding:22px 20px 22px 0}
+.facts b{display:block;font:800 34px/1 "Bricolage Grotesque",sans-serif}
+.facts span{color:var(--muted);font-size:15px}
+section{padding:80px 0 0}
+h2{font-size:clamp(28px,4.4vw,40px);font-weight:700;letter-spacing:-.02em;margin-bottom:28px}
+.lead{max-width:68ch;font-size:19px}
+.jobs{border-left:3px solid var(--line);margin-left:6px}
+.job{position:relative;padding:0 0 38px 28px}
+.job::before{content:"";position:absolute;left:-10px;top:8px;width:17px;height:17px;background:var(--bg);border:3px solid var(--ink);border-radius:50%}
+.job:first-child::before{background:var(--pink);border-color:var(--pink)}
+.job h3{font-size:23px;font-weight:700}
+.job .meta{color:var(--muted);font-size:15px;margin:4px 0 10px}
+ul{margin:0;padding-left:20px}li{margin:6px 0;max-width:72ch}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.proj{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--c);padding:26px;border-radius:2px}
+.proj h3{font-size:24px;margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tags span{font-size:13px;font-weight:600;border:1.5px solid var(--c);color:var(--ink);padding:3px 10px;border-radius:99px}
+.skills{display:grid;gap:0;border-top:2px solid var(--ink)}
+.skills div{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.skills h3{font-size:18px}
+.skills p{margin:0;color:var(--muted)}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.edu h3{font-size:21px;margin-bottom:4px}
+.edu p,.certs li{color:var(--muted);margin:2px 0}
+.certs{list-style:none;padding:0;margin-top:28px;display:grid;gap:10px}
+.certs li{background:var(--surface);border:1px solid var(--line);padding:12px 16px;color:var(--ink);max-width:none;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.certs li span{color:var(--muted)}
+.contact{padding-bottom:90px}
+.contact .big{font:800 clamp(28px,6vw,56px)/1.15 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;word-break:break-word}
+.contact .big a{text-decoration-thickness:4px;text-decoration-color:var(--pink);text-underline-offset:6px}
+.contact ul{list-style:none;padding:0;margin-top:26px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:14px}
+@media (max-width:640px){.skills div{grid-template-columns:1fr;gap:4px}header.top nav{gap:14px;font-size:14px}.hero h1{line-height:1.5}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><span>Felix Ahuchaogu</span><nav><a href="#work">Work</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav></header>
+
+<main>
+<div class="hero">
+<p class="who">AI Training Data Reviewer · Model Evaluation Specialist</p>
+<h1>I <span class="box b1"><i>action · 0.99</i>check</span> the <span class="box b2"><i>dataset · 0.99</i>data</span> that <span class="box b3"><i>model · 0.99</i>AI learns</span> from.</h1>
+<p class="sub">M.Sc. in Embedded AI, with 2+ years of annotation, LLM response evaluation and data validation across healthcare, finance and language projects. Based in Rivers State, Nigeria. Working remotely.</p>
+<div class="cta"><a class="btn p" href="mailto:ahuchaogufelix001@gmail.com">Email me</a><a class="btn" href="https://linkedin.com/in/felix-ahuchaogu-436b9b254">LinkedIn</a></div>
+</div>
+
+<div class="facts">
+<div><b>30+</b><span>projects across six platforms</span></div>
+<div><b>9,000+</b><span>images and text items labeled</span></div>
+<div><b>99%</b><span>labeling accuracy in Labelbox</span></div>
+<div><b>200</b><span>people on the largest team project</span></div>
+</div>
+
+<section id="about"><h2>About</h2>
+<p class="lead">I work on the quality side of AI: labeling images, video, text and audio, scoring LLM answers against rubrics, and catching bad data before it reaches a model. My master’s work was on model compression, quantization and embedded hardware, so I understand what happens to the data after I’ve finished with it. I also co-founded a web agency, so I’m comfortable talking to clients and meeting deadlines.</p></section>
+
+<section id="work"><h2>Experience</h2>
+<div class="jobs">
+<div class="job"><h3>AI Data Annotator &amp; Model Evaluator</h3><div class="meta">Clickworker, Toloka, Oneforma, Outlier, Atlas, Micro1 · Remote · Aug 2024 – present</div>
+<ul><li>Delivered 30+ projects labeling image, video, text and audio data for LLM evaluation, healthcare and finance.</li>
+<li>Labeled 9,000+ images and text items at 99% accuracy in Labelbox, tied to a reported 17% gain in downstream model performance.</li>
+<li>Resolved labeling discrepancies inside a 200-person Oneforma team to keep the dataset consistent.</li>
+<li>Built and deployed a rule-based Python script on Toloka that flags annotation anomalies and speeds up data cleansing.</li></ul></div>
+<div class="job"><h3>Co-Founder, Website Development Agency</h3><div class="meta">Mar 2025 – Dec 2025</div>
+<ul><li>Delivered custom websites for 5 clients, handling scoping, client communication and timelines.</li></ul></div>
+<div class="job"><h3>Remote Data Entry Specialist</h3><div class="meta">Jan 2024 – Jul 2024</div>
+<ul><li>Processed and validated 12,000+ records a month at 99.8% accuracy.</li>
+<li>Found and fixed 250+ data discrepancies every week across several databases.</li></ul></div>
+<div class="job"><h3>Remote Customer Support Representative</h3><div class="meta">Aug 2021 – Mar 2022</div>
+<ul><li>Reached 95% first-contact resolution and raised customer satisfaction by 25%.</li>
+<li>Answered 30+ email and chat inquiries daily within response-time targets.</li></ul></div>
+</div></section>
+
+<section id="projects"><h2>Featured projects</h2>
+<div class="grid2">
+<article class="proj" style="--c:var(--pink)"><h3>Automated Data Quality Script</h3><p>A rule-based Python tool that finds and flags anomalies in tabular annotation datasets. Used on a live Toloka project, it improved data-cleansing efficiency by 44% in testing.</p><div class="tags"><span>Python</span><span>Pandas</span><span>Rule-based QA</span></div></article>
+<article class="proj" style="--c:var(--cyan)"><h3>Personal Image Annotation Project</h3><p>A custom dataset of 600+ images annotated on my own for a classification task, with 99% inter-label consistency under annotation protocols I wrote myself.</p><div class="tags"><span>Image annotation</span><span>Data QA</span></div></article>
+</div></section>
+
+<section id="skills"><h2>Skills and tools</h2>
+<div class="skills">
+<div><h3>Technical</h3><p>Python (Pandas, rule-based anomaly detection), SQL, Excel, Google Sheets, database management</p></div>
+<div><h3>AI data and evaluation</h3><p>LLM response evaluation, multimodal annotation (image, video, text, audio), bounding boxes, segmentation, keypoint labeling, rubric-based QA, anomaly detection, data privacy and security</p></div>
+<div><h3>Platforms</h3><p>Labelbox, CVAT, Toloka, Clickworker, Oneforma, Outlier, Atlas, Micro1, Hubstaff</p></div>
+<div><h3>Remote collaboration</h3><p>Slack, Zoom, Microsoft Teams, Trello, Asana, Notion, asynchronous communication, cross-team coordination</p></div>
+</div></section>
+
+<section id="education"><h2>Education and certifications</h2>
+<div class="edu">
+<div><h3>M.Sc., Embedded Artificial Intelligence</h3><p>University of Port Harcourt, Nigeria · 2022</p><p>Model compression and quantization; embedded hardware and systems</p></div>
+<div><h3>B.Sc., Computer Science</h3><p>University of Port Harcourt, Nigeria · 2020</p></div>
+</div>
+<ul class="certs">
+<li>Advanced Data Annotation &amp; Quality Control <span>Scale AI Academy · 2024</span></li>
+<li>Certified Data Annotator <span>CVAT Academy · 2023</span></li>
+<li>Google Data Analytics Certificate <span>2023</span></li>
+<li>Certificate I: Image Labeling Associate <span>Acme AI · 2024</span></li>
+<li>Remote Work Professional Certificate <span>RemoteHow · 2023</span></li>
+</ul></section>
+
+<section id="contact" class="contact"><h2>Contact</h2>
+<p class="big">Have a dataset that needs a careful reviewer? <a href="mailto:ahuchaogufelix001@gmail.com">Email me.</a></p>
+<ul><li>ahuchaogufelix001@gmail.com</li><li>08084822749 / 08063306050</li><li>10 New Heaven Street, Chokocho, Etche, Rivers State</li><li><a href="https://linkedin.com/in/felix-ahuchaogu-436b9b254">linkedin.com/in/felix-ahuchaogu-436b9b254</a></li></ul></section>
+</main>
+<footer>© 2026 Felix Chukwunenye Ahuchaogu</footer>
+</div>
+</body>
+</html>
